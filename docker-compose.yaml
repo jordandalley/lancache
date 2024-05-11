@@ -1,0 +1,29 @@
+---
+services:
+  lancache:
+   build:
+    context: .
+    dockerfile: Dockerfile
+   container_name: lancache
+   environment:
+    # Time zone 
+    - TZ=Australia/Sydney
+    # IP Address of the host that this container will run on
+    - CACHE_IP=192.168.50.2
+    # DNS servers to resolve the actual origin hostnames from. If in an AD network, these should be a domain controller.
+    - UPSTREAM_DNS_SERVER_1=8.8.8.8
+    - UPSTREAM_DNS_SERVER_2=8.8.4.4
+    # Maximum cache size in GB (Default: 80)
+    - CACHE_MAX_SIZE=80
+    # Maximum days that an object should be stored in the cache (Default: 14)
+    - CACHE_INACTIVE_DAYS=14
+    # Maximum bandwidth that should be used by HTTPS content that cannot be cached in mbps (Default: 10)
+    - MAX_SSL_BANDWIDTH=10
+   ports:
+    - 80:80
+    - 443:443
+    - 55:53/udp
+   volumes:
+    # Path mapping to the host system where the cache data will reside
+    - /var/lancache:/var/cache/nginx/cache
+   restart: unless-stopped

@@ -1,0 +1,12 @@
+$TTL    60
+@       IN      SOA     localhost. root.localhost. (
+                              2         ; Serial
+                             60         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                             60 )       ; Negative Cache TTL
+
+@       IN      NS      localhost.
+; Change these IP's to the IP that you give your cache
+@       IN      A       $CACHE_IP
+*       IN      A       $CACHE_IP
