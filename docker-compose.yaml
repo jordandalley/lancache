@@ -22,7 +22,7 @@ services:
    ports:
     - 80:80
     - 443:443
-    - 55:53/udp
+    - 53:53/udp
    volumes:
     # Path mapping to the host system where the cache data will reside
     - /var/lancache:/var/cache/nginx/cache
