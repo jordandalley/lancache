@@ -81,6 +81,18 @@ This method is for sites with no onsite DNS server.
 
 On your DHCP server for the site, change the DNS server to the IP address configured in "CACHE_IP". The bind DNS server in this container will redirect known hostnames to the cache and pass the other requests upstream to the DNS forwarders configured in "UPSTREAM_DNS_SERVER_1" and "UPSTREAM_DNS_SERVER_2" in the docker-compose.yaml file.
 
+## Other commands
+
+Watch the NGINX log
+
+	docker exec -it lancache tail -f /var/log/nginx/access.log
+
+Purge the cachge (If you keep the default /var/lancache directory as your cache location
+
+	docker stop lancache
+	rm /var/lancache/* -rf
+	docker start lancache
+
 ## Nginx Configuration Detail
 
 The caches are designed for direct connectivity or transparent proxy (no implicit proxy).
