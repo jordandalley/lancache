@@ -47,24 +47,15 @@ Adobe Zones:
 
 ## Docker-compose Variables
 
-Set Time Zone:
-Example: TZ=Australia/Sydney
-
-IP Address of the host that this container will run on
-Example: CACHE_IP=192.168.50.2
-
-DNS servers to resolve the actual origin hostnames from. If in an AD network, these should be a domain controller.
-Example: UPSTREAM_DNS_SERVER_1=8.8.8.8
-Example: UPSTREAM_DNS_SERVER_2=8.8.4.4
-
-Maximum cache size in GB (Default: 80)
-Example: CACHE_MAX_SIZE=80
-
-Maximum days that an object should be stored in the cache (Default: 14)
-Example: CACHE_INACTIVE_DAYS=14
-
-Maximum bandwidth that should be used by HTTPS content that cannot be cached, in mbps (Default: 10)
-Example: MAX_SSL_BANDWIDTH=10
+Variable  | Default Value | Description
+------------- | ------------- | -------------
+TZ | Australia/Sydney | Set the timezone of the Docker environment
+CACHE_IP | 192.168.50.2 | IP Address of the host that this container will run on
+UPSTREAM_DNS_SERVER_1 | 8.8.8.8 | Primary DNS Server to forward upstream DNS requests to
+UPSTREAM_DNS_SERVER_2 | 8.8.4.4 | Secondary DNS Server to forward upstream DNS requests to
+CACHE_MAX_SIZE | 80 | Maximum cache size in GB
+CACHE_INACTIVE_DAYS | 14 | Maximum days that an object should be stored in the cache
+MAX_SSL_BANDWIDTH | 10 | Maximum bandwidth that should be used by HTTPS content that cannot be cached, in mbps
 
 ## Installation
 
