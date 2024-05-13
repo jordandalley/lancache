@@ -4,11 +4,6 @@ services:
    build:
     context: .
     dockerfile: Dockerfile
-    ulimits:
-     nproc: 999999
-     nofile:
-      soft: 999999
-      hard: 999999
    container_name: lancache
    cap_add:
     - NET_ADMIN
