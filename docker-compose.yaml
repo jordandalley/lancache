@@ -4,7 +4,18 @@ services:
    build:
     context: .
     dockerfile: Dockerfile
+    ulimits:
+     nproc: 999999
+     nofile:
+      soft: 999999
+      hard: 999999
    container_name: lancache
+   cap_add:
+    - NET_ADMIN
+   sysctls:
+    - net.core.somaxconn=512
+    - net.ipv4.ip_local_port_range=1024 65000
+    - net.ipv6.conf.all.disable_ipv6=1
    environment:
     # Time zone 
     - TZ=Australia/Sydney
